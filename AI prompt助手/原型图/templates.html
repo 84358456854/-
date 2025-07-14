@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板库 - AI Prompt助手</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui;
+            overflow-x: hidden;
+        }
+        .status-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .template-card {
+            transition: all 0.3s ease;
+        }
+        .template-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .category-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- iOS状态栏 -->
+    <div class="status-bar text-white text-sm px-4 py-2 flex justify-between items-center">
+        <div class="flex items-center space-x-1">
+            <span class="font-medium">9:41</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <div class="w-6 h-3 border border-white rounded-sm relative">
+                <div class="w-4 h-2 bg-white rounded-sm m-0.5"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex flex-col h-screen">
+        <!-- 顶部导航栏 -->
+        <div class="gradient-bg text-white px-4 py-4">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h1 class="text-2xl font-bold">模板库</h1>
+                    <p class="text-sm opacity-90">200+ 精选Prompt模板</p>
+                </div>
+                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-layer-group text-lg"></i>
+                </div>
+            </div>
+
+            <!-- 搜索框 -->
+            <div class="relative">
+                <input 
+                    type="text" 
+                    class="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-3 pl-10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    placeholder="搜索模板..."
+                >
+                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-white/70"></i>
+            </div>
+        </div>
+
+        <!-- 分类标签 -->
+        <div class="px-4 py-3 bg-white border-b border-gray-200">
+            <div class="flex space-x-2 overflow-x-auto">
+                <button class="category-tab active px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                    全部
+                </button>
+                <button class="category-tab px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-gray-100 whitespace-nowrap">
+                    文案创作
+                </button>
+                <button class="category-tab px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-gray-100 whitespace-nowrap">
+                    代码开发
+                </button>
+                <button class="category-tab px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-gray-100 whitespace-nowrap">
+                    数据分析
+                </button>
+                <button class="category-tab px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-gray-100 whitespace-nowrap">
+                    创意设计
+                </button>
+                <button class="category-tab px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-gray-100 whitespace-nowrap">
+                    商务办公
+                </button>
+            </div>
+        </div>
+
+        <!-- 模板列表 -->
+        <div class="flex-1 px-4 py-4 overflow-y-auto">
+            <!-- 热门模板 -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-fire text-orange-500 mr-2"></i>
+                    热门模板
+                </h3>
+                
+                <div class="space-y-3">
+                    <div class="template-card bg-white rounded-xl p-4 card-shadow">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-800 mb-1">营销文案生成器</h4>
+                                <p class="text-sm text-gray-600 mb-2">快速生成吸引人的营销文案，提高转化率</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-purple-100 text-purple-600 text-xs px-2 py-1 rounded">文案创作</span>
+                                    <span class="text-xs text-gray-500 flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        4.9
+                                    </span>
+                                    <span class="text-xs text-gray-500">1.2k使用</span>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-heart text-gray-400"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-green-600 font-medium">免费</span>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-600">
+                                使用模板
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="template-card bg-white rounded-xl p-4 card-shadow">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-800 mb-1">代码注释生成</h4>
+                                <p class="text-sm text-gray-600 mb-2">自动为代码生成规范的注释文档</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded">代码开发</span>
+                                    <span class="text-xs text-gray-500 flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        4.8
+                                    </span>
+                                    <span class="text-xs text-gray-500">890使用</span>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <button class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-heart text-red-500"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-green-600 font-medium">免费</span>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-600">
+                                使用模板
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分类模板 -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-pen-fancy text-purple-500 mr-2"></i>
+                    文案创作
+                </h3>
+                
+                <div class="grid grid-cols-1 gap-3">
+                    <div class="template-card bg-white rounded-xl p-4 card-shadow border-l-4 border-purple-500">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-medium text-gray-800">产品描述文案</h4>
+                            <span class="bg-orange-100 text-orange-600 text-xs px-2 py-1 rounded">高级</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">为电商产品生成吸引力强的描述文案</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs text-gray-500 flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    4.7
+                                </span>
+                                <span class="text-xs text-gray-500">652使用</span>
+                            </div>
+                            <button class="text-blue-500 text-sm font-medium">
+                                查看详情 <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="template-card bg-white rounded-xl p-4 card-shadow border-l-4 border-purple-500">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-medium text-gray-800">社交媒体内容</h4>
+                            <span class="text-sm text-green-600 font-medium">免费</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">适合各大社交平台的内容创作模板</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs text-gray-500 flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                    4.6
+                                </span>
+                                <span class="text-xs text-gray-500">423使用</span>
+                            </div>
+                            <button class="text-blue-500 text-sm font-medium">
+                                查看详情 <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最新模板 -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-clock text-green-500 mr-2"></i>
+                    最新模板
+                </h3>
+                
+                <div class="space-y-3">
+                    <div class="template-card bg-white rounded-xl p-4 card-shadow">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-medium text-gray-800">AI产品需求文档</h4>
+                            <span class="bg-green-100 text-green-600 text-xs px-2 py-1 rounded">新</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">专业的AI产品PRD模板，包含完整结构</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-2">
+                                <span class="bg-orange-100 text-orange-600 text-xs px-2 py-1 rounded">商务办公</span>
+                                <span class="text-xs text-gray-500">3天前</span>
+                            </div>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                                立即试用
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部间距 -->
+            <div class="h-20"></div>
+        </div>
+
+        <!-- 底部Tab Bar -->
+        <div class="bg-white border-t border-gray-200 px-4 py-2">
+            <div class="flex justify-around items-center">
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-home text-gray-400 text-lg mb-1"></i>
+                    <span class="text-xs text-gray-400">首页</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-layer-group text-blue-500 text-lg mb-1"></i>
+                    <span class="text-xs text-blue-500 font-medium">模板库</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-eye text-gray-400 text-lg mb-1"></i>
+                    <span class="text-xs text-gray-400">预览</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-history text-gray-400 text-lg mb-1"></i>
+                    <span class="text-xs text-gray-400">历史</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-user text-gray-400 text-lg mb-1"></i>
+                    <span class="text-xs text-gray-400">我的</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt助手 - 高保真原型图</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* iPhone 15 Pro 样式 */
+        .iphone-container {
+            width: 393px;
+            height: 852px;
+            background: #000;
+            border-radius: 47px;
+            padding: 8px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+        }
+        
+        .iphone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 39px;
+            overflow: hidden;
+            background: #fff;
+        }
+        
+        .prototype-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(393px, 1fr));
+            gap: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .prototype-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.1);
+        }
+        
+        .prototype-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="prototype-grid">
+        <!-- 页面标题 -->
+        <div class="col-span-full text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-4">AI Prompt助手</h1>
+            <p class="text-xl text-white/80">高保真移动端原型图 - iPhone 15 Pro</p>
+        </div>
+
+        <!-- 首页原型 -->
+        <div class="prototype-card">
+            <div class="prototype-title">首页 - 智能推荐</div>
+            <div class="iphone-container">
+                <div class="iphone-screen">
+                    <iframe src="home.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- 模板库原型 -->
+        <div class="prototype-card">
+            <div class="prototype-title">模板库 - 分类浏览</div>
+            <div class="iphone-container">
+                <div class="iphone-screen">
+                    <iframe src="templates.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI预览原型 -->
+        <div class="prototype-card">
+            <div class="prototype-title">AI预览 - 实时效果</div>
+            <div class="iphone-container">
+                <div class="iphone-screen">
+                    <iframe src="preview.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- 历史记录原型 -->
+        <div class="prototype-card">
+            <div class="prototype-title">历史记录 - Prompt管理</div>
+            <div class="iphone-container">
+                <div class="iphone-screen">
+                    <iframe src="history.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- 个人中心原型 -->
+        <div class="prototype-card">
+            <div class="prototype-title">个人中心 - 用户设置</div>
+            <div class="iphone-container">
+                <div class="iphone-screen">
+                    <iframe src="profile.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 确保所有iframe加载完成
+        window.addEventListener('load', function() {
+            console.log('AI Prompt助手原型图加载完成');
+        });
+    </script>
+</body>
+</html> 

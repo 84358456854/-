@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - AI Prompt助手</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui;
+            overflow-x: hidden;
+        }
+        .status-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .setting-item {
+            transition: all 0.3s ease;
+        }
+        .setting-item:hover {
+            background-color: #f8fafc;
+        }
+        .avatar-ring {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- iOS状态栏 -->
+    <div class="status-bar text-white text-sm px-4 py-2 flex justify-between items-center">
+        <div class="flex items-center space-x-1">
+            <span class="font-medium">9:41</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <div class="w-6 h-3 border border-white rounded-sm relative">
+                <div class="w-4 h-2 bg-white rounded-sm m-0.5"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex flex-col h-screen">
+        <!-- 用户信息头部 -->
+        <div class="gradient-bg text-white px-4 py-6">
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="avatar-ring p-1 rounded-full">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face" 
+                             alt="用户头像" 
+                             class="w-14 h-14 rounded-full object-cover">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-xl font-bold mb-1">杨硕</h2>
+                    <p class="text-sm opacity-90 mb-2">产品经理 · AI爱好者</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="text-center">
+                            <div class="text-lg font-bold">127</div>
+                            <div class="text-xs opacity-80">使用次数</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold">23</div>
+                            <div class="text-xs opacity-80">收藏模板</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold">8</div>
+                            <div class="text-xs opacity-80">使用天数</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-edit text-sm"></i>
+                </button>
+            </div>
+
+            <!-- 会员状态 -->
+            <div class="bg-white/10 rounded-xl p-3 border border-white/20">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-crown text-yellow-300"></i>
+                        <span class="text-sm font-medium">高级会员</span>
+                        <span class="bg-yellow-400 text-gray-900 text-xs px-2 py-0.5 rounded-full">VIP</span>
+                    </div>
+                    <div class="text-xs opacity-90">到期时间：2025-12-31</div>
+                </div>
+                <div class="mt-2">
+                    <div class="w-full bg-white/20 rounded-full h-1">
+                        <div class="bg-yellow-400 h-1 rounded-full" style="width: 75%"></div>
+                    </div>
+                    <div class="text-xs opacity-80 mt-1">本月已使用 127/500 次</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="flex-1 px-4 py-4 overflow-y-auto">
+            <!-- 快速统计 -->
+            <div class="bg-white rounded-2xl p-4 card-shadow mb-4">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-chart-pie text-blue-500 mr-2"></i>
+                    使用统计
+                </h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center p-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl text-white">
+                        <div class="text-2xl font-bold mb-1">60%</div>
+                        <div class="text-xs opacity-90">效率提升</div>
+                    </div>
+                    <div class="text-center p-3 bg-gradient-to-r from-green-500 to-green-600 rounded-xl text-white">
+                        <div class="text-2xl font-bold mb-1">8.5h</div>
+                        <div class="text-xs opacity-90">节省时间</div>
+                    </div>
+                    <div class="text-center p-3 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl text-white">
+                        <div class="text-2xl font-bold mb-1">4.8</div>
+                        <div class="text-xs opacity-90">平均评分</div>
+                    </div>
+                    <div class="text-center p-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl text-white">
+                        <div class="text-2xl font-bold mb-1">95%</div>
+                        <div class="text-xs opacity-90">满意度</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 常用功能 -->
+            <div class="bg-white rounded-2xl p-4 card-shadow mb-4">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-star text-yellow-500 mr-2"></i>
+                    常用功能
+                </h3>
+                <div class="grid grid-cols-3 gap-3">
+                    <button class="text-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-heart text-red-500 text-xl mb-2"></i>
+                        <div class="text-xs text-gray-700">我的收藏</div>
+                    </button>
+                    <button class="text-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-download text-blue-500 text-xl mb-2"></i>
+                        <div class="text-xs text-gray-700">导出数据</div>
+                    </button>
+                    <button class="text-center p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-share text-green-500 text-xl mb-2"></i>
+                        <div class="text-xs text-gray-700">分享应用</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 设置选项 -->
+            <div class="bg-white rounded-2xl p-4 card-shadow mb-4">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-cog text-gray-600 mr-2"></i>
+                    应用设置
+                </h3>
+                <div class="space-y-1">
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-bell text-blue-500 w-5"></i>
+                            <div>
+                                <div class="text-sm font-medium text-gray-800">推送通知</div>
+                                <div class="text-xs text-gray-500">接收新模板和功能更新</div>
+                            </div>
+                        </div>
+                        <div class="w-12 h-6 bg-blue-500 rounded-full relative">
+                            <div class="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5"></div>
+                        </div>
+                    </div>
+
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-moon text-purple-500 w-5"></i>
+                            <div>
+                                <div class="text-sm font-medium text-gray-800">深色模式</div>
+                                <div class="text-xs text-gray-500">切换应用主题</div>
+                            </div>
+                        </div>
+                        <div class="w-12 h-6 bg-gray-300 rounded-full relative">
+                            <div class="w-5 h-5 bg-white rounded-full absolute left-0.5 top-0.5"></div>
+                        </div>
+                    </div>
+
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-language text-green-500 w-5"></i>
+                            <div>
+                                <div class="text-sm font-medium text-gray-800">语言设置</div>
+                                <div class="text-xs text-gray-500">中文简体</div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </div>
+
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-shield-alt text-orange-500 w-5"></i>
+                            <div>
+                                <div class="text-sm font-medium text-gray-800">隐私设置</div>
+                                <div class="text-xs text-gray-500">管理数据权限</div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 账户管理 -->
+            <div class="bg-white rounded-2xl p-4 card-shadow mb-4">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-user-cog text-gray-600 mr-2"></i>
+                    账户管理
+                </h3>
+                <div class="space-y-1">
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-crown text-yellow-500 w-5"></i>
+                            <div>
+                                <div class="text-sm font-medium text-gray-800">会员中心</div>
+                                <div class="text-xs text-gray-500">管理订阅和权益</div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </div>
+
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-key text-blue-500 w-5"></i>
+                            <div>
+                                <div class="text-sm font-medium text-gray-800">API密钥</div>
+                                <div class="text-xs text-gray-500">管理第三方API</div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </div>
+
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-sync text-green-500 w-5"></i>
+                            <div>
+                                <div class="text-sm font-medium text-gray-800">数据同步</div>
+                                <div class="text-xs text-gray-500">云端备份设置</div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 帮助支持 -->
+            <div class="bg-white rounded-2xl p-4 card-shadow mb-4">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-question-circle text-gray-600 mr-2"></i>
+                    帮助支持
+                </h3>
+                <div class="space-y-1">
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-book text-blue-500 w-5"></i>
+                            <div class="text-sm font-medium text-gray-800">使用教程</div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </div>
+
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-comments text-green-500 w-5"></i>
+                            <div class="text-sm font-medium text-gray-800">意见反馈</div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </div>
+
+                    <div class="setting-item flex items-center justify-between p-3 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-info-circle text-purple-500 w-5"></i>
+                            <div class="text-sm font-medium text-gray-800">关于我们</div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 退出登录 -->
+            <div class="bg-white rounded-2xl p-4 card-shadow mb-6">
+                <button class="w-full py-3 text-red-500 font-medium text-center">
+                    <i class="fas fa-sign-out-alt mr-2"></i>
+                    退出登录
+                </button>
+            </div>
+
+            <!-- 版本信息 -->
+            <div class="text-center text-xs text-gray-500 mb-6">
+                <p>AI Prompt助手 v1.0.0</p>
+                <p>© 2025 杨硕. All rights reserved.</p>
+            </div>
+
+            <!-- 底部间距 -->
+            <div class="h-20"></div>
+        </div>
+
+        <!-- 底部Tab Bar -->
+        <div class="bg-white border-t border-gray-200 px-4 py-2">
+            <div class="flex justify-around items-center">
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-home text-gray-400 text-lg mb-1"></i>
+                    <span class="text-xs text-gray-400">首页</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-layer-group text-gray-400 text-lg mb-1"></i>
+                    <span class="text-xs text-gray-400">模板库</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-eye text-gray-400 text-lg mb-1"></i>
+                    <span class="text-xs text-gray-400">预览</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-history text-gray-400 text-lg mb-1"></i>
+                    <span class="text-xs text-gray-400">历史</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <i class="fas fa-user text-blue-500 text-lg mb-1"></i>
+                    <span class="text-xs text-blue-500 font-medium">我的</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
